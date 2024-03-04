@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Student</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        form {
+            width: 80%;
+            max-width: 500px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .button-container {
+            text-align: center;
+        }
+        input[type="submit"], a {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            text-decoration: none;
+            margin-right: 10px;
+        }
+        input[type="submit"]:hover, a:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <form action="delete_data/{{ student.StudentID }}" method="POST">
+        {% csrf_token %}
+        <table>
+            <tr>
+                <th>Student</th>
+                <th>Information</th>
+            </tr>
+            <tr>
+                <td>Student ID</td>
+                <td><input name="menid" value="{{ student.StudentID }}" disabled></td>
+            </tr>
+            <tr>
+                <td>Name</td>
+                <td><input name="menname" value="{{ student.StudentName }}" disabled></td>
+            </tr>
+            <tr>
+                <td>Class</td>
+                <td><input name="roomno" value="{{ student.StudentClass }}" disabled></td>
+            </tr>
+            <tr>
+                <td>Phone Number</td>
+                <td><input name="roomno" value="{{ student.StudentPhoneNumber }}" disabled></td>
+            </tr>
+            <tr>
+                <td>Course</td>
+                <td><input name="roomno" value="{{ student.StudentCourse }}" disabled></td>
+            </tr>
+        </table>
+        <div class="button-container">
+            <a href="{% url 'StudentTable' %}">Back</a>
+            <input type="submit" onclick="confirmDelete()" value="DELETE">
+        </div>  
+    </form>
+
+    <script>
+        function confirmDelete() {
+            if (confirm("Are you sure you want to delete this student?")) {
+                document.getElementById("deleteForm").submit();
+            }
+        }
+    </script>
+</body>
+</html>

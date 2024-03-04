@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        form {
+            margin: 20px;
+            text-align: center;
+        }
+        input[type="text"] {
+            padding: 10px;
+            width: 200px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        input[type="submit"] {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        table {
+            border: 2px solid #ddd;
+            border-collapse: collapse;
+            width: 80%;
+            margin: 20px auto;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #333;
+        }
+        a:hover {
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+    <form action="search" method="GET">
+        <input type="text" name="search" placeholder="Search" required="required">
+        <input type="submit" value="Search">
+    </form>
+    {% if studentID %}
+        <p>ID Number: {{ studentID }}</p>
+    {% endif %}
+    <table>
+        <tr>
+            <th>Student Name</th>
+            <th>Mentor ID</th>
+            <th>Reason</th>
+            <th>Date</th>
+            <th>Status</th>
+        </tr>
+        {% for x in mystudent %}
+        <tr>
+            <td>{{x.StudentID.StudentName}}</td>
+            <td>{{ x.MentorID_id }}</td>
+            <td>{{ x.Reason }}</td>
+            <td>{{ x.Date }}</td>
+            <td>{{ x.Status }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="{% url 'admin' %}">Go Back</a>
+</body>
+</html>

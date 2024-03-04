@@ -1,0 +1,104 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mentor Homepage</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+    }
+    .container {
+      max-width: 800px;
+      margin: 50px auto;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      padding: 40px;
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
+    h1 {
+      color: #333;
+      margin-bottom: 20px;
+      font-size: 28px;
+    }
+    .info {
+      margin-left: 40px;
+    }
+    .info p {
+      margin: 8px 0;
+      font-size: 16px;
+      color: #555;
+    }
+    .button-container {
+      display: flex;
+      justify-content: center;
+    }
+    .button {
+      display: inline-block;
+      padding: 14px 28px;
+      margin: 0 10px;
+      font-size: 18px;
+      cursor: pointer;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+    .button:hover {
+      background-color: #0056b3;
+    }
+    .logout-button {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+    .logout-button button {
+      background-color: #dc3545;
+    }
+    .back-button {
+      position: absolute;
+      top: 10px;
+      right: 130px; /* Adjusted right position to accommodate both buttons */
+    }
+    .back-button button {
+      background-color: #6c757d; /* Adjusted back button color */
+    }
+    .mentor-picture {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="{% static 'png-transparent-suit-clothing-formal-wear-suit-template-fashion-necktie-thumbnail.png' %}" alt="Mentor Picture" class="mentor-picture">
+    <div class="info">
+      <div class="back-button">
+        <a href="Mentor" class="button">Back</a>
+      </div>
+      <div class="logout-button">
+        <a href="MentorLogin" class="button">Logout</a>
+      </div>
+      <h1>Welcome, to your profile</h1>
+      <div class="info">
+        <p><strong>ID:</strong> {{mentor.MentorID}}</p>
+        <p><strong>Name:</strong> {{mentor.MentorName}}</p>
+        <p><strong>Phone Number:</strong> {{mentor.MentorPhoneNumber}}</p>
+        <p><strong>Department:</strong> {{mentor.MentorDepartment}}</p>
+        <p><strong>Room Number:</strong> {{mentor.MentorRoomNo}}</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

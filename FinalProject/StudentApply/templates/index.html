@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Release Management</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f5f5; /* Light gray background */
+            color: #333; /* Dark gray text */
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+        }
+        header {
+            margin-bottom: 20px;
+        }
+        h1 {
+            margin: 0;
+            font-size: 28px;
+            color: #333; /* Dark gray heading */
+        }
+        .button-container {
+            display: flex;
+            flex-direction: row; 
+            justify-content: center; 
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .button {
+            padding: 15px 30px;
+            font-size: 18px;
+            border: none;
+            border-radius: 25px; /* Rounded border */
+            background-color: #007bff; /* Blue button color */
+            color: #fff;
+            text-decoration: none;
+            transition: background-color 0.3s, transform 0.2s; 
+            cursor: pointer;
+            width: 100%;
+            display: inline-block;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .button:hover {
+            background-color: #0056b3; 
+            transform: translateY(-2px); 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Student Release Management</h1>
+        </header>
+        <div class="button-container">
+            <a href="{% url 'adminlogin' %}" class="button">Admin Login</a>
+            <a href="{% url 'Login' %}" class="button">Mentor Login</a>
+            <a href="{% url 'studentlogin' %}" class="button">Student Login</a>
+        </div>
+    </div>
+</body>
+</html>

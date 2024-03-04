@@ -1,0 +1,98 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Homepage</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+    }
+    .container {
+      max-width: 800px;
+      margin: 50px auto;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      padding: 40px;
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
+    h1 {
+      color: #333;
+      margin-bottom: 20px;
+      font-size: 28px;
+    }
+    .info {
+      margin-left: 40px;
+    }
+    .info p {
+      margin: 8px 0;
+      font-size: 16px;
+      color: #555;
+    }
+    .button-container {
+      display: flex;
+      justify-content: center;
+    }
+    .button {
+      display: inline-block;
+      padding: 14px 28px;
+      margin: 0 10px;
+      font-size: 18px;
+      cursor: pointer;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+    .button:hover {
+      background-color: #0056b3;
+    }
+    .logout-button {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+    .logout-button button {
+      background-color: #dc3545;
+    }
+    .mentor-picture {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="{% static 'png-transparent-suit-clothing-formal-wear-suit-template-fashion-necktie-thumbnail.png' %}" alt="Mentor Picture" class="mentor-picture">
+    <div class="info">
+      <div class="button-container">
+        <a href="Student" class="button logout-button">Logout</a>
+    </div>
+      </form> 
+      <div class="info">
+        <p><strong>Student ID:</strong> {{student.StudentID}}</p>
+        <p><strong>Student Name:</strong> {{student.StudentName}}</p>
+        <p><strong>Student Course:</strong> {{student.StudentCourse}}</p>
+        <p><strong>Student Class:</strong> {{student.StudentClass}}</p>
+        <p><strong>Student Phone Number:</strong>{{student.StudentPhoneNumber}}</p>
+        <p><strong>Mentor ID:</strong>{{student.MentorID_id}}</p>
+      </div>
+      <div class="button-container">
+        <a href="Form/{{student.StudentID}}" class="button">Form Release</a>
+        <a href="{% url 'AbsentFormHistory' %}" class="button">History</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

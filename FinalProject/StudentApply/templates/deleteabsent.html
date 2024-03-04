@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Student</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            width: 80%;
+            max-width: 600px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .button-container {
+            text-align: center;
+        }
+        .button-container button, a {
+            padding: 10px 20px; 
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            text-decoration: none;
+            margin-right: 10px;
+        }
+        .button-container button:hover, a:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Delete Student</h2>
+        <form id="deleteForm" action="{% url 'deletedata' id=table.id %}" method="POST">
+            {% csrf_token %}
+            <table>
+                <tr>
+                    <th>Student</th>
+                    <th>Information</th>
+                </tr>
+                <tr>
+                    <td>Student ID</td>
+                    <td>{{ table.StudentID_id }}</td>
+                </tr>
+                <tr>
+                    <td>Reason</td>
+                    <td>{{ table.Reason }}</td>
+                </tr>
+                <tr>
+                    <td>Date</td>
+                    <td>{{ table.Date }}</td>
+                </tr>
+                <tr>
+                    <td>Status</td>
+                    <td>{{ table.Status }}</td>
+                </tr>
+                <tr>
+                    <td>Mentor ID</td>
+                    <td>{{ table.MentorID_id }}</td>
+                </tr>
+            </table>
+            <div class="button-container">
+                <a href="{% url 'admin' %}">Back</a>
+                <button type="button" onclick="confirmDelete()">DELETE</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function confirmDelete() {
+            if (confirm("Are you sure you want to delete this student?")) {
+                document.getElementById("deleteForm").submit();
+            }
+        }
+    </script>
+</body>
+</html>
